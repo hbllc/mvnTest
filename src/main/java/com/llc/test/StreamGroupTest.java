@@ -1,8 +1,6 @@
 package com.llc.test;
 
 import cn.hutool.core.bean.BeanUtil;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 
 import java.util.*;
 import java.util.function.BinaryOperator;
@@ -274,29 +272,3 @@ public class StreamGroupTest {
 
 }
 
-@lombok.Data
-@AllArgsConstructor
-@Builder
-class Student {
-
-    private String name;
-    private Integer age;
-    private Integer score;
-    private String clazz;
-    private String course;
-
-
-}
-@lombok.Data
-@AllArgsConstructor
-@Builder
-class OutstandingStudent {
-
-    private String name;
-    private Integer age;
-    private Integer score;
-    private String clazz;
-    private String course;
-
-
-}

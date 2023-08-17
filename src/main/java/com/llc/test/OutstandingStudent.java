@@ -1,7 +1,21 @@
-package com.llc.test;/**
- *  
- *  
+package com.llc.test;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
+/**
  * @author lilichuan
  */
-public class OutstandingStudent {
+@lombok.Data
+@AllArgsConstructor
+@Builder
+class OutstandingStudent {
+
+    private String name;
+    private Integer age;
+    private Integer score;
+    private String clazz;
+    private String course;
+
+
 }
