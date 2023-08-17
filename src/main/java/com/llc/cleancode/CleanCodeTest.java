@@ -3,7 +3,7 @@ package com.llc.cleancode;
 import cn.hutool.core.collection.CollUtil;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -30,7 +30,7 @@ public class CleanCodeTest {
     }
 
     /**
-     * 优化后的代码
+     * 卫语句
      *
      * @param data 数据
      */
@@ -52,7 +52,7 @@ public class CleanCodeTest {
     private boolean checkItem(ItemData item) {
         if (item != null && item.getItemName() != null && !item.getItemName().isEmpty() && item.getItemNum() != null
                 && item.getItemNum() > 0 && item.getCreateTime() != null) {
-            if (item.getItemName() == "test" || item.getItemNum() > 5 || item.getCreateTime().getTime() > new Date().getTime()) {
+            if (item.getItemName() == "test" || item.getItemNum() > 5 || item.getCreateTime().isAfter(LocalDate.now())) {
                 return false;
             } else {
                 return true;
@@ -77,11 +77,19 @@ public class CleanCodeTest {
             return false;
         }
 
-        if (item.getCreateTime().getTime() > new Date().getTime()) {
+        if (item.getCreateTime().isAfter(LocalDate.now())) {
             return false;
         }
+
+//        if(!entryProcessingDate(item.getCreateTime())){
+//            return false;
+//        }
         return true;
         
+    }
+
+    private boolean entryProcessingDate(LocalDate createTime) {
+        return LocalDate.now().isAfter(createTime);
     }
 
     //校验数据非空
@@ -89,6 +97,10 @@ public class CleanCodeTest {
         return item != null && item.getItemName() != null && !item.getItemName().isEmpty()
                 && item.getItemNum() != null && item.getItemNum() > 0 && item.getCreateTime() != null;
     }
+
+
+
+
 
 
     /**
@@ -202,5 +214,5 @@ class ItemData {
     /**
      * 商品创建时间
      */
-    private Date createTime;
+    private LocalDate createTime;
 }
