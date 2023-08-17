@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbc-url: jdbc:mysql://mci-dev-vpc.mysql.rds.aliyuncs.com:3306/numa_investment?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: opr
+    password: opr
+    maximum-pool-size: 100
+    minimum-idle: 15
+    connection-timeout: 3000
+    validation-timeout: 1500
