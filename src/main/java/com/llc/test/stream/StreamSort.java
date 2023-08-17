@@ -1,7 +1,5 @@
 package com.llc.test.stream;
 
-import com.llc.test.Student;
-
 import java.util.Comparator;
 import java.util.List;
 
@@ -12,9 +10,8 @@ public class StreamSort {
 
     public static void main(String[] args) {
         List<Student> list = List.of(Student.builder().build());
-
-//返回 对象集合以Student getName升序排序
-
+        //返回 对象集合以Student getName升序排序
+        list.sort(Comparator.comparing(Student::getName));
         list.stream().sorted(Comparator.comparing(Student::getName));
 
 //返回 对象集合以Student getName降序排序 注意两种写法

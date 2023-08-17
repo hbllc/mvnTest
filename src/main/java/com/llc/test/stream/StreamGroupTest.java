@@ -1,4 +1,4 @@
-package com.llc.test;
+package com.llc.test.stream;
 
 import cn.hutool.core.bean.BeanUtil;
 

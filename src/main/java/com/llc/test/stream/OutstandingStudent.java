@@ -1,4 +1,4 @@
-package com.llc.test;
+package com.llc.test.stream;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.Builder;
 @lombok.Data
 @AllArgsConstructor
 @Builder
-public class Student {
+class OutstandingStudent {
 
     private String name;
     private Integer age;
