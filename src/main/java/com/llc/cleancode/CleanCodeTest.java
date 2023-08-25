@@ -131,9 +131,9 @@ public class CleanCodeTest {
             return;
         }
 
-//        if(this.noNeedProcess(item)){
-//            return;
-//        }
+        if(this.noNeedProcess(item)){
+            return;
+        }
 
 
         if (item.startsWith("A")) {
