@@ -1,8 +1,14 @@
 package com.llc.test;
 
+import cn.hutool.core.date.DateUtil;
+import com.alibaba.fastjson.JSONObject;
+import com.llc.web.dto.HelloDto;
+import org.junit.Test;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,6 +22,32 @@ public class LocalDateTest {
         String s = "2016-09-14T00:00:00+08:00";
         ZonedDateTime z = ZonedDateTime.parse(s);
 
+    }
+
+    @Test
+    public void test(){
+        HelloDto dto = new HelloDto();
+        dto.setName("test");
+        dto.setTime(ZonedDateTime.now());
+        System.out.println(JSONObject.toJSONString(dto));
+    }
+
+
+    @Test
+    public void testCompare(){
+        // 获取当前时间
+        ZonedDateTime now = ZonedDateTime.now();
+        Date nowDate = DateUtil.tomorrow();
+
+
+        // 比较两个时间的差异
+        System.out.println("ZonedDateTime和Date的时间差异：");
+        System.out.println("相差" + (now.toInstant().toEpochMilli() - nowDate.getTime()) + "毫秒");
+        System.out.println("相差" + (now.toInstant().toEpochMilli() - nowDate.getTime()) + "毫秒");
+
+        // 格式化输出时间
+        System.out.println("ZonedDateTime时间：" + now);
+        System.out.println("Date时间：" + new Date(nowDate.getTime()));
     }
 
     private static boolean isNotBefore(LocalDate date){
